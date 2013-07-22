@@ -2,12 +2,17 @@ require 'active_record'
 require 'logger'
 require 'sinatra'
 require 'yaml'
+require 'action_view' # for Rails form helpers
+require 'erubis' # for escaping of HTML
+
+# Escape HTML
+set :erb, escape_html: true
 
 # Enable sessions -- note that a web server restart will invalidate all cookies
 use Rack::Session::Cookie, secret: SecureRandom.hex
 
-# fix ConnectionTimeoutError
-after { ActiveRecord::Base.connection.close }
+# for Rails form helpers
+helpers ActionView::Helpers::FormTagHelper
 
 # Comment this line to turn off Active Record SQL logging
 ActiveRecord::Base.logger = Logger.new(STDOUT)
@@ -23,9 +28,12 @@ if ENV['DATABASE_URL'] # for Heroku
     database: db.path[1..-1],
     encoding: 'utf8',
   })
-else # for local development
+elsif Dir.exists?('db') # for local development
   config = YAML.load_file('config/database.yml')
   ActiveRecord::Base.establish_connection(config['development'])
+
+  after { ActiveRecord::Base.connection.close }
+  # fix ConnectionTimeoutError
 end
 
 # Load models from models directory, like Rails
