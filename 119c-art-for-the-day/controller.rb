@@ -5,7 +5,7 @@ get "/" do
 end
 
 get "/art/1" do
-  @art = "TODO: change this to match the mockup image"
+  @art = "     /|\n    /||\n   / ||\n  /  ||\n /___||\n/____||"
   halt erb(:art)
 end
 
