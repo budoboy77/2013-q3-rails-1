@@ -10,6 +10,6 @@ get "/art/1" do
 end
 
 get "/art/2" do
-  @art = "TODO: change this to match the mockup image"
+  @art = "^-----^\n| . . |\n|  3  |\n\\-----/"
   halt erb(:art)
 end
