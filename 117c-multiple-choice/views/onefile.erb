@@ -1,4 +1,4 @@
-<p>Gender</p>
+<p>Gender:<br>
 
 <% if @title == "blank" %>
 <label for="male"> <input type="radio" name="title" value="male" id="male" /> Male</label>
@@ -10,8 +10,9 @@
 <label for="male"> <input type="radio" name="title" value="male" checked="checked" id="male" /> Male</label>
 <label for="female"> <input type="radio" name="title" value="female" id="female" /> Female</label><br />
 <% end %>
+</p>
 
-<p> Favorite color </p>
+<p> Favorite color:<br>
 
 <% if @title == "blank" %>
 <select>
@@ -32,11 +33,13 @@
   <option value="blue">Blue</option>
 </select>
 <% end %>
+</p>
 
-<p>Blood donor</p>
+<p>Blood donor:<br>
 
 <% if @title == "example3" %>
 <input type="checkbox" name="donor" value="yes" checked>
 <% else %>
 <input type="checkbox" name="donor" value="yes">
 <% end %>
+</p>
