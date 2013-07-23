@@ -1,0 +1,42 @@
+<p>Gender:<br>
+<% if @title == "blank" %>
+<label for="male"> <input type="radio" name="title" value="male" id="male" /> Male</label>
+<label for="female"> <input type="radio" name="title" value="female" id="female" /> Female</label><br />
+<% elsif @title == "example2" %>
+<label for="male"> <input type="radio" name="title" value="male" id="male" /> Male</label>
+<label for="female"> <input type="radio" name="title" value="female" checked="checked"id="female" /> Female</label><br />
+<% else %>
+<label for="male"> <input type="radio" name="title" value="male" checked="checked" id="male" /> Male</label>
+<label for="female"> <input type="radio" name="title" value="female" id="female" /> Female</label><br />
+<% end %>
+</p>
+
+<p> Favorite color:<br>
+<% if @title == "blank" %>
+<select>
+  <option value="chooseone" selected>(Choose One)</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
+<% elsif @title == "example2" %>
+<select>
+  <option value="chooseone">(Choose One)</option>
+  <option value="green">Green</option>
+  <option value="blue" selected>Blue</option>
+</select>
+<% else %>
+<select>
+  <option value="chooseone">(Choose One)</option>
+  <option value="green" selected>Green</option>
+  <option value="blue">Blue</option>
+</select>
+<% end %>
+</p>
+
+<p>Blood donor:<br>
+<% if @title == "example3" %>
+<input type="checkbox" name="donor" value="yes" checked>
+<% else %>
+<input type="checkbox" name="donor" value="yes">
+<% end %>
+</p>
