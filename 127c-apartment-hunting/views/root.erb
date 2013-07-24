@@ -1,0 +1,26 @@
+<H1>Apartments</H1>
+<table border=1>
+	<tr>
+		<th>ID</th>
+		<th>Address</th>
+		<th>Rent</th>
+		<th>Pet?</th>
+		<th>Link</th>
+		<th>Map</th>
+	</tr>
+	<% @apartments.each do |apartment| %>
+			<td><%= apartment.id %></td>
+			<td><%= apartment.address %></td>
+			<td>$<%= apartment.rent_per_month %></td>
+			<% if apartment.does_allow_pets == false %>
+				<td>No</td>
+			<% elsif apartment.does_allow_pets == true %>
+				<td>Yes</td>
+			<% else %>
+				<td>?</td>
+			<% end %>
+			<td><a href="<%= apartment.url %>"><%= apartment.url %></a></td>
+			<td><a href="http://maps.google.com/?q=<%= apartment.address %>">Map</a></td>
+		</tr>
+	<% end %>
+</table>
