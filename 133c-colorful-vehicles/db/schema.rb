@@ -11,6 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130727202833) do
+
+  create_table "colors", :force => true do |t|
+    t.string "name"
+    t.string "color_code"
+  end
+
+  create_table "vehicles", :force => true do |t|
+    t.string "name"
+    t.string "file"
+  end
 
 end
