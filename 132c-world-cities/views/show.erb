@@ -1,1 +1,28 @@
-<!-- TODO: write ERb -->
+<table>
+	<tr>
+		<td>City name</td>
+		<td>
+		<td><%= @city.city %>
+	</tr>
+	<tr>
+		<td>Country</td>
+		<td>
+		<td><%= @city.country %></td>
+	</tr>
+	<tr>
+		<td>Time zone offset</td>
+		<td>
+		<td>
+			<% if @city.timezone >= 0 %>
+				GMT+<%= @city.timezone %>
+			<% else %>
+				GMT<%= @city.timezone %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>Population (in millions)</td>
+		<td>
+		<td><%= @city.population %></td>
+	</tr>
+</table>
