@@ -5,8 +5,8 @@ get "/" do
   halt erb(:index)
 end
 
-get "/entries/:name" do
-  id = params[:name]
+get "/entries/:id" do
+  id = params[:id]
   @entry = EncyclopediaEntry.find(id)
   halt erb(:show)
 end
