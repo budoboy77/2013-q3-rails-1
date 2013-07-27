@@ -3,7 +3,8 @@ class CreateCities < ActiveRecord::Migration
   	create_table :cities do |t|
   		t.string :city
   		t.string :country
-  		t.time :timezone
+  		t.string :flag
+  		t.integer :timezone
   		t.float :population
   	end
   end
