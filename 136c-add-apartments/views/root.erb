@@ -19,4 +19,12 @@
       <td><a href="<%= apartment.url %>"><%= apartment.url %></a></td>
     </tr>
   <% end %>
+  <tr>
+      <td>(new)</td>
+      <td><%== text_field_tag :address, "", size: 35 %></td>
+      <td><%== text_field_tag :rent_per_month, "", size: 4 %></td>
+      <td><%== text_field_tag :does_allow_pets, "", size: 5 %></td>
+      <td><%== text_field_tag :url, "", size: 70 %></td>
+      <td><%== submit_tag "Create" %></td>
+  </tr>
 </table>
