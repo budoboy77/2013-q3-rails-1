@@ -6,6 +6,7 @@ get '/' do
 end
 
 get '/new-goat' do
+	@goat = RacingGoat.new
 	halt erb(:new)
 end
 
