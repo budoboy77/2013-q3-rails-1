@@ -10,19 +10,32 @@ get "/1" do
   @answer1 = "15"
   @answer2 = "40"
   @answer3 = "13"
-  halt erb(:question1)
+  halt erb(:question)
 end
 
 post "/1" do
-  # TODO: Write this part
+  if params[:answer] == "3"
+  	redirect "/2"
+  else
+  	redirect "/1"
+  end
 end
 
 get "/2" do
-  # TODO: Write this part
+  @question_number = "2"
+  @question_text = "What is 5 - 3?"
+  @answer1 = "2"
+  @answer2 = "3"
+  @answer3 = "8"
+  halt erb(:question)
 end
 
 post "/2" do
-  # TODO: Write this part
+  if params[:answer] == "1"
+  	redirect "/done"
+  else
+  	redirect "/2"
+  end
 end
 
 get "/done" do
