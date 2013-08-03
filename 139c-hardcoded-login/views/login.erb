@@ -1,8 +1,10 @@
 <h1>Login</h1>
 
 <p>
+	<%= @error %>
+<p>
 	Username<br>
-	<%== text_field_tag :username, "", size: 30 %>
+	<%== text_field_tag :username, @old_username, size: 30 %>
 	<br>
 	Password<br>
 	<%== text_field_tag :password, "", size: 30 %>
