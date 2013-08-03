@@ -5,7 +5,12 @@ get "/" do
 end
 
 get "/1" do
-  # TODO: Write this part
+  @question_number = "1"
+  @question_text = "What is 8 + 5?"
+  @answer1 = "15"
+  @answer2 = "40"
+  @answer3 = "13"
+  halt erb(:question1)
 end
 
 post "/1" do
