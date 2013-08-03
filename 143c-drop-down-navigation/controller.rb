@@ -5,7 +5,14 @@ get "/" do
 end
 
 post "/" do
-  # TODO: write this part
+	if params[:page] == "page1"
+		redirect "/page1"
+	elsif params[:page] == "page2"
+		redirect "/page2"
+	else
+		redirect "/"
+		halt erb(:choose_page)
+	end
 end
 
 get "/page1" do
