@@ -1,3 +1,31 @@
-<h1>Page 2 of 4: Shipping</h1>
+<%== error_messages_for @customer %>
 
-<!-- TODO: write this -->
+<h1>Page 2 of 4: Shipping</h1>
+<p>
+<h2>Choose shipping address</h2>
+</p>
+
+<p>
+	
+<%== radio_button_tag :ship_speed, "ground" %>Ground <br>
+<%== radio_button_tag :ship_speed, "next day" %>Next Day <br>
+</p>
+
+<h2>Enter shipping address</h2>
+
+<p>
+	Address1<br>
+	<%== text_field_tag :address1, "", size: 20 %><br>
+	City<br>
+	<%== text_field_tag :city, "", size: 20 %><br>
+	State<br>
+	<%== select_tag :state, options_from_collection_for_select(
+		@u_s_states, :abbreviation, :name),
+		prompt: "" %><br>
+	ZIP code<br>
+	<%== text_field_tag :zip_code, "", size: 6 %><br>
+</p>
+
+<p>
+	<%== submit_tag "Go back" %> or <%== submit_tag "Continue" %>
+</p>
