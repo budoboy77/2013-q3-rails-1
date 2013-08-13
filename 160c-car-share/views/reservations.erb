@@ -1,15 +1,18 @@
 <p>
-  Welcome, jen
+  Welcome, <%= @name %>
   <%== submit_tag "Logout" %>
 </p>
 
 <h2>My current reservations</h2>
 
+<% if @name == "jen" %>
 Car number: 2 <br>
 Color: black <br>
 Model: VW Jetta <br>
-<%== submit_tag "Return car 2" %> <br>
+<%== submit_tag "Return car 2" %> 
 <br>
+<br>
+<% end %>
 
 <h2>List of available cars</h2>
 <table border="1">
