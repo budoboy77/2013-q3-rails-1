@@ -12,7 +12,6 @@ get "/recipe/:name" do
 end
 
 get "/by-author/:name" do
-  # TODO: assign to @recipes the recipes for this author
-  # TODO: assign to @title "Recipes by _____"
+  # @author = Author.where(name: params[:name]).first
   halt erb(:index)
 end

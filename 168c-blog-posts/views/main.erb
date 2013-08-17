@@ -15,7 +15,7 @@
     <tr>
       <td><%= post.id %></td>
       <td><%= post.title %></td>
-      <td>TODO</td>
+      <td><%= Author.where(id: post.author_id).first.name %></td>
     </tr>
   <% end %>
 </table>
@@ -34,7 +34,9 @@
       <td><%= author.name %></td>
       <td>
         <ul>
-          <li>TODO</li>
+          <% BlogPost.where(author_id: author.id).all.each do |blog| %>
+          <li><%= blog.title %></li>
+          <% end %>
         </ul>
       </td>
     </tr>

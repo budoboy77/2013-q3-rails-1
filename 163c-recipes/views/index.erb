@@ -13,7 +13,9 @@
         </a>
       </td>
       <td>
-        TODO: author's name here, linked to /by-author/name
+        <a href="/author/<% URI.escape(Author.where(id: recipe.author_id).first.full_name) %>">
+        <%= Author.where(id: recipe.author_id).first.full_name %>
+      </a>
       </td>
     </tr>
   <% end %>

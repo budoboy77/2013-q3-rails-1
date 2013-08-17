@@ -1,0 +1,8 @@
+<H1>Team <%= Team.where(color: params[:color]).first.color %></H1>
+
+<ul>
+	<% Member.where(team_id: Team.where(color: params[:color]).first.id).all.each do |member| %>
+	<li><%= member.name %></il>
+	<% end %>
+	<li>Add a team member: <%== text_field_tag :member, "", size: 20 %> <%== submit_tag "Add" %></il>
+</ul>

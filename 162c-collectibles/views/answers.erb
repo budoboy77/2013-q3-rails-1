@@ -1,5 +1,7 @@
 <% if params[:commit] == "Answer 1" %>
-  <!-- TODO: answer here -->
+  <% Collectible.where(episode_id: Episode.where(name: params[:episode_name]).first.id).each do |collectible| %>
+  <%= collectible.name %><br>
+  <% end %> 
 <% end %>
 
 <% if params[:commit] == "Answer 2" %>

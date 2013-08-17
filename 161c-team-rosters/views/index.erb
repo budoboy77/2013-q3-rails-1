@@ -1,0 +1,9 @@
+<H1>Teams</H1>
+
+<ul>
+	<% Team.all.each do |team| %>
+	<li><a href="/team/<%= team.color %>"><%= team.color %></a></il>
+	<% end %>
+	<li>Add a new color: <%== text_field_tag :color, "", size: 20 %> <%== submit_tag "Add" %></il>
+</ul>
+<p>Click a team to view its team members.</p>
