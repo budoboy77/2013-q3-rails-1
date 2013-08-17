@@ -10,9 +10,11 @@
       <td><%= order.id %></td>
       <td><%= order.table_number %></td>
       <td>
+        <% order.line_items.all.each do |item| %>
         <ul>
-          TODO: Write this
+          <li><%= item.quantity %> <%= item.dish.name %> at <%= "$%.2f" % item.dish.price %> each = <%= "$%.2f" % (item.dish.price*item.quantity)%></il>
         </ul>
+        <% end %>
       </td>
       <td><%= "$%.2f" % order.total_price %></td>
     </tr>
