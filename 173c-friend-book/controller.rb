@@ -5,15 +5,21 @@ get "/" do
 end
 
 get "/login" do
+	@people = Person.order(:name).all
   halt erb(:login)
 end
 
 post "/login" do
-  # TODO: write this
+	@people = Person.order(:name).all
+  if Person.where(name: params[:username]).first.authenticate(params[:password]) != false
+  	redirect "/followers"
+  else
+  	halt erb(:login)
+  end
 end
 
 get "/followers" do
-  # TODO: write this
+  halt erb(:followers)
 end
 
 post "/followers" do

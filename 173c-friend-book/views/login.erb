@@ -1,1 +1,17 @@
-<!-- TODO: write this -->
+<H1>Login to FriendBook</H1>
+<p>
+<%== select_tag :username, 
+options_from_collection_for_select(
+	@people, :name, :name, ""),
+prompt: "Choose a username" %>
+</p>
+<p>
+	Password<br>
+	<%== text_field_tag :password, "", size: 30 %>
+</p>
+<p>
+	<%== submit_tag "Login" %>
+</p>
+<p>
+	Password is the first letter of the name, uppercase.
+</p>
