@@ -10,8 +10,15 @@ get "/users/new" do
 end
 
 post "/users/new" do
-  # TODO: Create new User with the specified username and password,
-  #   complaining if the username is missing or passwords don't match
+  @user = User.new
+  @user.username = params[:new_username]
+  @user.password = params[:password]
+  @user.password_confirmation = params[:password_confirmation]
+  if @user.save == true
+    redirect "/welcome"
+  else
+    halt erb(:new)
+  end
 end
 
 get "/login" do
