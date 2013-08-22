@@ -1,1 +1,26 @@
-<!-- TODO: write this -->
+<p>
+You are logged in as <%= Person.find(session[:user_id]).name %>. <a href="/logout">Logout</a>
+</p>
+<p>
+	<H1>Who I follow</H1>
+</p>
+<p>
+	<ul>
+		<% Person.find(session[:user_id]).from_person.each do |following|%>
+		<li><%= Person.find(following.to_person_id).name %></il>
+		<% end %>
+		<li>someone new: 
+						<%== select_tag :username, 
+						options_from_collection_for_select(
+							@people, :name, :name, ""),
+						prompt: "" %></il> <%== submit_tag "Follow" %>
+	</ul>
+</p>
+<p><H1>My followers</H1></p>
+<p>
+	<ul>
+		<% Person.find(session[:user_id]).to_person.each do |followers|%>
+		<li><%= Person.find(followers.from_person_id).name %></il>
+		<% end %>
+	</ul>
+</p>
