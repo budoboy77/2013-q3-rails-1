@@ -1,3 +1,7 @@
 require '../dvc-sinatra.rb'
 
-# TODO: Write this
+get "/" do
+	@tables = Table.all
+	@orders = Order.all
+	halt erb(:main)	
+end
