@@ -11,27 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822213610) do
+ActiveRecord::Schema.define(:version => 20130824194927) do
 
   create_table "entrees", :force => true do |t|
     t.string  "name"
     t.decimal "price"
   end
 
-  create_table "order_lines", :force => true do |t|
-    t.integer  "order_id"
+  create_table "line_items", :force => true do |t|
     t.integer  "entree_id"
-    t.integer  "chair_number"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "order_id"
+    t.integer  "chair"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity"
+    t.decimal  "line_price"
   end
 
   create_table "orders", :force => true do |t|
     t.integer  "table_id"
-    t.boolean  "is_paid"
+    t.boolean  "has_paid"
     t.decimal  "total_price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tables", :force => true do |t|
