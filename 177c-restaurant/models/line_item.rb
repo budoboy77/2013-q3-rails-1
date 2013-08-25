@@ -4,5 +4,5 @@ class LineItem < ActiveRecord::Base
 
   validates :order_id,     presence: true
   validates :entree_id,    presence: true
-  validates :chair_number, presence: true
+  validates :chair, presence: true
 end

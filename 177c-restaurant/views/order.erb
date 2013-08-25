@@ -6,6 +6,17 @@
 			<th>Entree name</th>
 			<th>Price</th>
 		</tr>
+		<% @order.line_items.each do |item| %>
+		<tr>
+			<td><%= item.chair %></td>
+			<td><%= Entree.find(item.entree_id).name %></td>
+			<td><%= "$%.2f" % Entree.find(item.entree_id).price %></td>
+		</tr>
+		<% end %>
+		<tr>
+			<td></td>
+			<td><b>Total</b></td>
+			<td><%= "$%.2f" % @order.total_price %> <%== submit_tag "Pay and close" %></td>
 	</table>
 </p>
 

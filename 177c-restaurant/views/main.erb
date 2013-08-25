@@ -12,10 +12,10 @@
 	<tr>
 		<td>Table #<%= table.id %></td>
 		<td><%= table.number_of_chairs %> chairs</td>
-		<% if Order.where(table_id: table.id).first == nil %>
-			<td><%== submit_tag "Occupy table #{table.id}" %>
-		<% else %>
+		<% if Order.where(table_id: table.id).first != nil && Order.where(table_id: table.id).first.has_paid == false %>
 			<td><a href="/order/<%= Order.where(table_id: table.id).first.id %>">occupied</a>
+		<% else %>
+			<td><%== submit_tag "Occupy table #{table.id}" %>
 		<% end %>
 	</tr>
 	<% end %>
