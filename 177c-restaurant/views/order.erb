@@ -1,1 +1,33 @@
-<!-- TODO: write this -->
+<H1>Order <%= params[:order_number] %> for Table <%= @table.id %></H1>
+<p>
+	<table border=2>
+		<tr>
+			<th>Chair</th>
+			<th>Entree name</th>
+			<th>Price</th>
+		</tr>
+	</table>
+</p>
+
+<p>
+	Menu item:
+</p>
+
+<p>
+	<table>
+		<% Entree.all.each do |entree| %>
+			<tr>
+				<td><%== radio_button_tag :entree, "#{entree.id}" %><%= entree.name %></td>
+				<td><%= "$%.2f" % entree.price %><td>
+			</tr>
+		<% end %>
+	</table>
+</p>
+
+<p>
+	Chair number(from 1 to <%= @table.number_of_chairs %>)<br>
+	<%== text_field_tag :chair, "", size: 5 %>
+</p>
+<p>
+	<%== submit_tag "Add entree" %>
+</p>
