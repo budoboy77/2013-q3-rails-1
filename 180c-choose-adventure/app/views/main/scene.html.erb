@@ -1,0 +1,11 @@
+<H1><%= @scene.title %></H1>
+<p>
+	<%= @scene.body %>
+</p>
+<p>
+	<ul>
+		<% @scene.choices.each do |choice| %>
+			<li><a href="/scene/<%= choice.to_scene_id %>"><%= choice.description %></a></il>
+		<% end %>
+	</ul>
+</p>
