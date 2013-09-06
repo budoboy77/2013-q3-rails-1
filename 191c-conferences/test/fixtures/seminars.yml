@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_date: 2013-09-03
+  venue_id: 1
+
+two:
+  name: MyString
+  start_date: 2013-09-03
+  venue_id: 1
