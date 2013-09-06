@@ -1,0 +1,18 @@
+<a href="/">Back to index</a>
+
+<h1>Edit post #<%= @edit_blog_post.id %></h1>
+<%== form_tag "/edit/#{@edit_blog_post.id}" do %>
+<p>
+Date written at: (YYYY-MM-DD)<br>
+<%= text_field_tag :post_date, @edit_blog_post_post_date %>
+</p>
+
+<p>
+	Body of Post:<br>
+	<%= text_area_tag :body, @edit_blog_post_body, rows: 10, cols: 60 %>
+</p>
+
+<p>
+<%= submit_tag "Update" %>
+</p>
+<% end %>

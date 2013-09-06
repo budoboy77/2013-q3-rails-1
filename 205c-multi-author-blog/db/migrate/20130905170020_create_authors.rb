@@ -5,7 +5,6 @@ class CreateAuthors < ActiveRecord::Migration
       t.string :username
       t.string :password_digest
       t.string :portrait_filename
-
       t.timestamps
     end
   end

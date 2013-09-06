@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130905170140) do
 
   create_table "blog_posts", force: true do |t|
     t.integer  "author_id"
-    t.date     "written_at"
+    t.date     "post_date"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

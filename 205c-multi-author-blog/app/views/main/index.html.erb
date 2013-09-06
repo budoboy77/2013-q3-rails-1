@@ -1,6 +1,30 @@
-<p>TODO: show blog posts</p>
+<p>
+  <a href="/new">Write new post</a>
+</p>
+<hr>
 
-<p>To get you started, here are pictures of the two authors</p>
-
-<%== image_tag Author.find(1).portrait_filename %>
-<%== image_tag Author.find(2).portrait_filename %>
+<% @blog_posts.each do |post| %>
+  <div style='margin-bottom:10px'>
+    <div style='margin-left:130px;width:500px'>
+      <div style='float:right'>
+      	<% if post.author.id == session[:author_id] %>
+        <a href="/edit/<%= post.id %>">
+          edit
+        </a>
+        <% end %>
+      </div>
+  
+      <h2 style='display:inline'>
+        <%= post.post_date.strftime('%A, %B %-d, %Y') %>
+      </h2>
+      <br>
+      <%= post.body %>
+  
+      <div style='float:right;font-weight:bold'>
+        &mdash;<%= Author.find(post.author_id).full_name %>
+      </div>
+    </div>
+    <br style='clear:both'>
+  </div>
+  
+<% end %>

@@ -14,6 +14,7 @@ class MainController < ApplicationController
   end
 
   def index
+    @blog_posts = BlogPost.order("post_date DESC").all
     render :index and return
   end
 
@@ -47,6 +48,34 @@ class MainController < ApplicationController
 
   def logout
     session.clear
+    redirect_to "/" and return
+  end
+
+  def edit_get
+    @edit_blog_post = BlogPost.find(params[:id])
+    @edit_blog_post_post_date = @edit_blog_post.post_date
+    @edit_blog_post_body = @edit_blog_post.body
+    render :edit and return
+  end
+
+  def edit_post
+    edit_blog_post = BlogPost.find(params[:id])
+    edit_blog_post.post_date = params[:post_date]
+    edit_blog_post.body = params[:body]
+    edit_blog_post.save!
+    redirect_to "/edit/#{edit_blog_post.id}" and return
+  end
+
+  def new_get
+    render :new and return
+  end
+
+  def new_post
+    new_blog_post = BlogPost.new
+    new_blog_post.author_id = session[:author_id]
+    new_blog_post.post_date = params[:post_date]
+    new_blog_post.body = params[:body]
+    new_blog_post.save!
     redirect_to "/" and return
   end
 end
